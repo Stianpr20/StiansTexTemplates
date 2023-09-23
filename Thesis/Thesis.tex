@@ -1,0 +1,38 @@
+%%--------------------------------------------------------------%%
+%% Stian's PhD thesis template                                  %%
+%%--------------------------------------------------------------%%
+
+%----- Preamble -----%
+%TC:ignore
+\documentclass[11pt, b5paper, twoside, openright]{book}
+
+\input{Setup/DocumentSpecifications.tex}
+\input{Setup/PreambleMain.tex}
+%TC:endignore
+
+% Ignore certain linting warnings:
+% chktex-file  8 (wrong dash)
+% chktex-file 13 (intersentence spacing)
+% chktex-file 46 (use of '$' instead of '\(...\)')
+
+
+%----- Content -----%
+\begin{document}
+
+% Front matter
+\input{Content/FrontMatter-header.tex}
+
+% Part I
+\include{Content/Part1-title}
+\include{Content/Body/Part1/Foo}
+\include{Content/Body/Part1/Bar}
+
+% Part II
+\include{Content/Part2-title}
+\include{Content/Body/Part2/Baz}
+
+% Back matter
+\input{Content/BackMatter-header.tex}
+
+\end{document}
+%----------------------------------------------------------------%

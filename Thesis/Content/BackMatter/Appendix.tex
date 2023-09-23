@@ -1,0 +1,54 @@
+\appendix
+
+\chapter*{Appendix}
+\addcontentsline{toc}{chapter}{Appendix}
+
+\renewcommand\thesection{\Alph{section}}
+\setcounter{section}{0}
+\renewcommand{\theHsection}{\thesection}
+
+\markboth{Appendix}{}
+
+\noindent
+The following content is found in the appendix:
+\begin{enumerate}[topsep=4pt, label=\textbf{\Alph*.}, itemsep=0.1\baselineskip]
+    \item \nameref{appendix:extra-theory}
+        {\color{gray} (page~\pageref{appendix:extra-theory})}
+    \item \nameref{appendix:project-changelog}
+        {\color{gray} (page~\pageref{appendix:project-changelog})}
+    \item \nameref{appendix:poster-label}
+        {\color{gray} (page~\pageref{appendix:poster-label})}
+\end{enumerate}
+
+
+%--- Appendix section A ---%
+\input{Content/BackMatter/AppendixFiles/ExtraTheory.tex}
+
+
+%--- Appendix section B ---%
+\section{Programming project change log}%
+\label{appendix:project-changelog}
+Included here is the change log of some relevant programming project.
+\begin{multicols*}{2}
+    {\scriptsize
+        \markdownInput[
+            shiftHeadings=1,smartEllipses]%
+            {Content/BackMatter/AppendixFiles/AttachedChangelog.md}
+    }
+\end{multicols*}
+
+
+%--- Appendix section C ---%
+\newpage
+\includepdf[
+    pages=-,
+    addtotoc={%
+        1, % page number
+        section, % section type
+        1, % level
+        Poster contribution at some conference, %heading
+        appendix:poster-label % reference label
+        },
+    pagecommand={\thispagestyle{empty}},
+    width=1.305\textwidth]
+    {example-image-10x16.pdf}

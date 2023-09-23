@@ -1,0 +1,124 @@
+%========== Mathematical packages ==========%
+
+%----- Font settings -----%
+% For changing math indentation (workaround)
+\usepackage{amsmath}
+% \setlength{\mathindent}{1cm} % if using the option 'fleqn' to 'amsmath'
+
+% Mathematical formatting and symbols
+\usepackage{extarrows}
+% \usepackage{amsfonts,amssymb,amsgen}
+%\usepackage{amsthm}
+
+% To handle warning about bold symbols
+% https://tex.stackexchange.com/questions/106714/stmaryrd-and-boldsymbol-avoid-warnings
+\usepackage{stmaryrd}
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
+% Extended set of integrals
+\usepackage{esint}
+
+% More symbols
+\usepackage{stmaryrd}
+
+% Nicer, small fraction
+% \usepackage{nicefrac}
+
+% Euler script font.
+%\usepackage[mathscr]{euscript}
+
+% Ralph Smith's formal script font	
+\usepackage{mathrsfs}
+
+
+%----- Math spacing -----%
+% Spacing before and after math.
+\makeatletter
+	\g@addto@macro\normalsize{%
+% Spacing for math environments:
+  	\setlength\abovedisplayskip{7pt plus 3pt minus 5pt}
+	\setlength\belowdisplayskip{7pt plus 3pt minus 5pt}
+% Spacing for displayed math:
+	\setlength\abovedisplayshortskip{7pt plus 3pt minus 5pt}
+	\setlength\belowdisplayshortskip{7pt plus 3pt minus 5pt}%
+	}
+\makeatother
+
+% Allows page break in math
+\allowdisplaybreaks{}
+
+
+%----- Useful math packages -----%
+% Nicer unit layout
+\usepackage{siunitx}
+	% \DeclareSIUnit\elementarycharge{%
+	% 	\protect \protect \unhbox \voidb@x \hbox {\protect $\relax e$}}
+	\DeclareSIUnit\elementarycharge{e}
+
+	\DeclareSIUnit\parsec{pc}
+	\DeclareSIUnit\lightyear{ly}
+	\DeclareSIUnit\barn{barn}
+	\DeclareSIUnit\tonn{tonn}
+	\DeclareSIUnit\kWh{kWh}
+	\DeclareSIUnit\Wh{Wh}
+	\DeclareSIUnit\TWh{TWh}
+	\DeclareSIUnit\hk{hk}
+	\DeclareSIUnit\bq{Bq}
+	\DeclareSIUnit\rpm{rpm}
+	\DeclareSIUnit\aar{\LatinModernRomanMathFont\text{\aa}r}
+	\DeclareSIUnit\anno{a}
+	\DeclareSIUnit\pixel{px}
+	\DeclareSIUnit\angstrom{%
+		\text{\LatinModernRomanMathFont\AA}}
+	\DeclareSIUnit\ohm{%
+		\text{\LatinModernRomanMathFont\text{Ω}}}
+	\DeclareSIUnit\degree{%
+		\text{\LatinModernRomanMathFont\textdegree}}
+	
+	\sisetup{%
+	% detect-all,
+	% binary-units=true,
+	% exponent-product = \cdot,
+	group-minimum-digits=3,
+	per-mode=symbol,
+	separate-uncertainty=true,
+	% math-micro={\LatinModernRomanMathFont\text{µ}},
+	% text-micro=µ,
+	% text-degree=°,
+	% math-degree={\LatinModernRomanMathFont\text{°}}
+	}
+
+% Enables 'cancel to' in math
+\usepackage{cancel}
+
+% For slashing letters in math (useful for quantum mechanics)					
+% \usepackage{slashed}
+
+% Bold math (bold \nabla and greek)
+% \usepackage{bm}
+
+% 'sfrac' and 'rfrac'
+% \usepackage{xfrac}
+
+% For chemical formulae
+\usepackage[version=4]{mhchem}
+
+% For chemical figures
+%\usepackage{chemfig}
+
+% For better equation boxing
+% \usepackage{empheq}
+
+
+%----- Universal math definitions -----%
+% Differential operator
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
+
+% Partial differential operator.
+\newcommand{\D}{\mathop{}\!\partial}
+
+% Euler's constant
+\newcommand{\ec}{\mathrm{e}\mkern1mu}
+
+% Imaginary unit
+\newcommand{\iu}{\mathrm{i}\mkern1mu}

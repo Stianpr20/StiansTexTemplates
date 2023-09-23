@@ -1,0 +1,74 @@
+%-----Front page------------------------------------------------------%
+
+% \newgeometry{left=4.00cm, right=4.00cm, top=2.54cm, bottom=2.54cm}
+\begin{titlepage}
+\begin{center}
+
+
+
+\begin{minipage}{0.70\textwidth}
+\begin{center}
+\begin{spacing}{1.6}
+    {\addfontfeatures{LetterSpace=3.5}
+        \Huge{\scshape\bfseries\DocumentTitle}}
+\end{spacing}
+\end{center}   
+\end{minipage}
+
+\vspace{-5mm}
+
+\begin{minipage}{0.70\textwidth}
+\begin{center}
+\begin{spacing}{1.2}
+    {\addfontfeatures{LetterSpace=2.0}
+        \LARGE{\scshape\DocumentSubTitle}}
+\end{spacing}
+\end{center}   
+\end{minipage}
+
+
+\vspace{15mm}
+
+
+by\\[4mm]
+{\addfontfeatures{LetterSpace=4.0}\huge{\scshape\DocumentAuthor}}
+
+\vspace{15mm}
+
+% University logo goes here, e.g.:
+% \includegraphics[width=25mm]{...}
+\begin{tikzpicture}
+    \duck
+\end{tikzpicture}
+
+\vspace{15mm}
+
+
+\begin{minipage}{0.40\textwidth}
+\begin{center}
+    {\small
+    Thesis submitted in fulfilment of the
+    requirements for the degree of
+    philosophiae doctor}
+\end{center}   
+\end{minipage}
+
+
+\vspace{15mm}
+
+\begin{spacing}{1.1}
+\large{\DocumentUniversityDepartment} \\
+\large{\DocumentUniversityFaculty} \\
+{\scshape\large\DocumentUniversity} \\[5mm]
+\large{%
+    \uppercase\expandafter{%
+        \romannumeral\DocumentYear\relax
+    }
+} % Roman numeral version of \DocumentYear
+\end{spacing}
+
+
+
+\end{center}
+\end{titlepage}
+% \restoregeometry{}

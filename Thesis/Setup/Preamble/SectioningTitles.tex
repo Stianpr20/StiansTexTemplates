@@ -1,0 +1,94 @@
+%========== Sectioning titles ==========%
+
+% Main package
+% (No indent on first line)
+\usepackage[noindentafter]{titlesec}
+
+%----- Customise headings -----%
+% Part
+\titleformat{\part}[display]
+	% Formatting of part title -- main:
+		{\normalfont\filcenter%
+		\Huge\partstyle\color{AccentColor}}  % chktex 6
+	% Formatting of part title -- label:
+		{\normalfont\LARGE\partname%
+		\hspace{2mm}\LARGE\thepart\centering}
+	% Horizontal spacing between the two:
+		{0pt}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]
+
+% Chapter
+\titleformat{\chapter}[display]
+	% Formatting of chapter title -- main:
+		{\itshape\bfseries}  % chktex 6
+	% Formatting of chapter title -- label:
+		{\normalfont\chaptertitlename%
+		\hspace{2mm}\Huge\thechapter\centering}
+	% Horizontal spacing between the two:
+		{0pt}
+	% Extra code -- before:
+		{\huge\centering}
+	% Extra code -- after:
+		[]
+
+	% Chapter title spacing
+	% {left}{before}{after}[right]
+	\titlespacing{\chapter}{0pt}{-2cm}{1cm}
+	
+% Section
+\titleformat{\section}
+	% Formatting of section title -- main:
+		{\Large\bfseries%\color{StyleCol1}
+		}
+	% Formatting of section title -- label:
+		{\thesection}
+	% Horizontal spacing between the two:
+		{0.5em}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]%[\titlerule]
+
+	% Section title spacing
+	\titlespacing*{\section}{0pt}{0.5cm}{2pt}
+
+% Subsection
+\titleformat{\subsection}
+	% Formatting of subsection title -- main:
+		{\large\bfseries%\color{StyleCol3}
+		}
+	% Formatting of subsection title -- label:
+		{\thesubsection}
+	% Horizontal spacing between the two:
+		{0.5em}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]
+
+	% Subsection title spacing
+	\titlespacing{\subsection}{0pt}{12pt}{0pt}
+
+% Subsubsection
+\titleformat{\subsubsection}
+	% Formatting of subsection title -- main:
+		{\normalsize\bfseries}  % ChkTex 6
+	% Formatting of subsection title -- label:
+		{}
+	% Horizontal spacing between the two:
+		{}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]
+
+	% Subsubsection title spacing
+	\titlespacing*{\subsubsection}{0pt}{1.5em}{0pt}
+
+
+%----- Remove numbers -----%
+%\renewcommand\thesection{\hspace*{-1em}}
+%\renewcommand\thesubsection{\hspace*{-1em}}

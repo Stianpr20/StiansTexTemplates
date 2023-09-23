@@ -1,0 +1,48 @@
+%========== Graphics and visuals ==========%
+
+%----- Figure packages -----%
+% Used for inserting graphics
+\usepackage{graphicx}
+
+% For wrapping text around figures.
+\usepackage{wrapfig}
+
+% Caption
+\usepackage[
+	font={sf,scriptsize,stretch=1.1},
+	labelfont={sf,bf}]
+	{caption}
+	
+\usepackage[
+	font={sf,scriptsize,stretch=1.1},
+	labelfont={sf,bf}]
+	{subcaption}
+\DeclareCaptionLabelFormat{boldParens}{{\bfseries(#2)}}
+\captionsetup{subrefformat=boldParens}
+
+
+%----- TikZ -----%
+% \usepackage{tikz}
+% Add `usetikzlibrary` as required
+
+%----- Miscellaneous -----%
+% For dashed lines in tabular environments:
+\usepackage{arydshln}
+\usepackage{wallpaper}
+
+% For textboxes (especially code) [set after 'footmisc']
+% \usepackage{listings}
+
+% Footnote style with symbols.
+\usepackage[symbol*, bottom]{footmisc}
+\DefineFNsymbolsTM{customFootnoteSymbols}{%
+  {\color{AccentColor} \textdagger}    {\dagger}
+  {\color{AccentColor} \textdaggerdbl} {\ddagger}
+  {\color{AccentColor} \textsection}   {\mathsection}
+  {\color{AccentColor} \textparagraph} {\mathparagraph}
+  {\color{AccentColor} \textasteriskcentered} *
+}%
+\setfnsymbol{customFootnoteSymbols}
+
+% Workaround for tables.
+\usepackage{tablefootnote}

@@ -1,0 +1,58 @@
+%========== Auxiliary definitions specific to this document  ==========%
+
+%----- Miscellaneous -----%
+% Force blank page
+\newcommand{\blankpage}{\newpage\null\thispagestyle{empty}}
+
+%----- Incorporating external documents -----%
+% Publication insertion
+\newcommand{\currentPublicationName}{<Publication Title>}
+\newcommand{\InsertPublication}[1]{
+    \renewcommand{\currentPublicationName}{#1}
+    \stepcounter{publication}
+    \includepdf[
+        pages=-,
+        addtotoc={%
+            1, % page number
+            section, % section
+            1, % level
+            Publication~\arabic{publication}, %heading
+            Appendix-Publication\arabic{publication} % label
+            },
+        pagecommand={\thispagestyle{publication}},
+        width=1.15\textwidth
+    ]{Content/BackMatter/AppendixFiles/Publication\arabic{publication}.pdf}
+}
+
+% Function for inserting background images
+\newcommand{\InsertChapterWallpaper}[1]{
+    \cleartoevenpage
+    \thispagestyle{empty}
+    \ThisCenterWallPaper{1.0}{#1}
+}
+
+%----- Quotes -----%
+\newcommand{\bigQuote}[1]{%
+\begin{center}
+\begin{minipage}{0.75\textwidth}
+{\color{AccentColor}
+    \centering\Large\itshape{#1}\\{}
+}
+\end{minipage}
+\end{center}
+}
+
+\newcommand{\bigQuoteSigned}[2]{%
+\begin{center}
+{\color{AccentColor}
+\hspace*{\fill}
+\begin{minipage}{0.50\textwidth}
+    \raggedright\Large\itshape{#1}
+\end{minipage}
+\hspace*{\fill}
+\begin{minipage}{0.25\textwidth}
+    {\large\rightline{\upshape --- #2}}
+\end{minipage}
+}
+\end{center}
+}

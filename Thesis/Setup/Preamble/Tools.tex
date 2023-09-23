@@ -1,0 +1,73 @@
+%========== Tools ==========%
+
+%----- Placeholder tools -----%
+% Used in this template for placeholder text and ducks:
+\usepackage{lipsum}
+\setlipsum{auto-lang=false} % To avoid warning with Latin hyphenation patterns
+
+\usepackage{tikzducks}
+
+
+%----- Essential -----%
+% Language pack
+\usepackage[\DocumentLanguage]{babel}
+
+% For labels and referencing
+\usepackage{fancyref}
+
+% For changing line spacing
+\usepackage{setspace}
+
+% For nicer lines in tables:
+\usepackage{booktabs}
+
+
+%----- Miscellaneous -----%
+% For getting absolute page number
+\usepackage[user, abspage]{zref}
+
+% General readability improvements
+\usepackage{microtype}
+
+% For temporary margin change
+\usepackage{nextpage}
+
+
+%----- File inclusion -----%
+% Inclusion of PDF files:
+\usepackage{pdfpages}
+
+% Inclusion of MarkDown files:
+\usepackage{markdown}
+\renewcommand{\markdownRendererHeadingTwo}[1]{\subsubsection*{#1}}
+\renewcommand{\markdownRendererHeadingThree}[1]{\subsection*{#1}}
+\renewcommand{\markdownRendererHeadingFour}[1]{\subsubsection*{#1}}
+\renewcommand{\markdownRendererCodeSpanPrototype}[1]{{\color{AccentColor}\ttBreak{#1}}}
+
+% For customising item lists [must be loaded after `markdown`']
+\usepackage{enumitem}
+\setlist[enumerate]{label*=\arabic*.}
+
+
+%----- Tweaks -----%
+%--- Automatic hyphenation/line break with 'ttfamily'
+% https://tex.stackexchange.com/questions/360193/how-can-i-hyphenate-before-capital-letters-in-ttfamily#360195
+\usepackage{expl3}
+\expandafter\def\csname ver@l3regex.sty\endcsname{}  % ChkTex 41
+\usepackage{xparse,l3regex}
+\ExplSyntaxOn%
+\NewDocumentCommand{\ttBreak}{m}
+ {
+  \tl_set:Nn \l_spraff_cppstring_tl { #1 }
+  % change _ to a printable underscore
+  \regex_replace_all:nnN { _ } { \cO\_ } \l_spraff_cppstring_tl                % ChkTex 21
+  % change :: to \linebreak[0]::
+  \regex_replace_all:nnN { :: } { \c{linebreak}[0]:: } \l_spraff_cppstring_tl  % ChkTex 26
+  % change capital letter X to \-X
+  \regex_replace_all:nnN { (\B[A-Z]\B[^A-Z]) } { \c{-}\1 } \l_spraff_cppstring_tl
+  % print the result
+  {\normalfont\ttfamily \tl_use:N \l_spraff_cppstring_tl }
+ }
+\tl_new:N \l_spraff_cppstring_tl
+\ExplSyntaxOff%
+%---

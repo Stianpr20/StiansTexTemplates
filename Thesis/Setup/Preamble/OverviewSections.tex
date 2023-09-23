@@ -1,0 +1,177 @@
+%========== Overview sections  ==========%
+
+%----- Table of contents -----%
+% Main package
+\usepackage{tocloft}
+\setlength\cftparskip{-2pt}
+
+% Headline
+\renewcommand\cfttoctitlefont{\hfill\Huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftbeforetoctitleskip{-1cm}
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+% Custom headline title
+% (Analogously use for 'listfigurename' and 'listtablename')
+\addto\captionsbritish{
+	\renewcommand{\contentsname}{Table of contents}}
+
+% Styling of entries
+\setlength{\columnseprule}{0.4pt}
+
+% Part
+\renewcommand{\cftpartfont}{\scriptsize\bfseries\color{AccentColor}}
+\renewcommand{\cftpartpagefont}{\scriptsize\bfseries\color{AccentColor}}
+\renewcommand\cftpartindent{-0.5em}
+
+% Chapter
+\renewcommand{\cftchapfont}{\small\bfseries}
+\renewcommand{\cftchappagefont}{\small\bfseries}
+\renewcommand\cftbeforechapskip{4pt}
+
+% Section
+\renewcommand{\cftsecfont}{\scriptsize}
+\renewcommand{\cftsecpagefont}{\scriptsize}
+	\makeatletter
+		\renewcommand{\cftsecdotsep}{1.0}
+	\makeatother
+
+% Subsection
+\renewcommand{\cftsubsecfont}{\tiny}
+\renewcommand{\cftsubsecpagefont}{\tiny}
+	\makeatletter
+		\renewcommand{\cftsubsecdotsep}{1.0}
+	\makeatother
+\renewcommand\cftbeforesubsecskip{-3pt}
+
+% Indentation
+\cftsetindents{section}{1.5em}{1.5em}
+\cftsetindents{subsection}{3.0em}{1.75em}
+
+% Add TOC, references, index, list of figures/tables etc. to TOC
+\usepackage[notlot, notlof]{tocbibind}
+
+
+%----- List of figures -----%
+% Spacing, dots and size
+\renewcommand\cftfigafterpnum{\vskip2pt\par}  % chktex 41
+\renewcommand{\cftfigdotsep}{2.5}
+\renewcommand{\cftfigfont}{\scriptsize}
+\renewcommand{\cftfigpagefont}{\scriptsize}
+
+% Headline
+\renewcommand\cftloftitlefont{\hfill\huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftafterloftitle{\hfill\mbox{}}
+
+
+%----- List of tables -----%
+% Spacing, dots and size
+\renewcommand\cfttabafterpnum{\vskip2pt\par}  % chktex 41
+\renewcommand{\cfttabdotsep}{2.5}
+\renewcommand{\cfttabfont}{\scriptsize}
+\renewcommand{\cfttabpagefont}{\scriptsize}
+
+% Headline
+\renewcommand\cftlottitlefont{\hfill\huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftafterlottitle{\hfill\mbox{}}
+
+
+%----- List of symbols (nomenclature) -----%
+\usepackage[intoc, refpage]{nomencl}
+\renewcommand*{\pagedeclaration}[1]{\dotfill\hyperpage{#1}}
+\renewcommand{\nomname}{List of symbols}
+\renewcommand{\nompreamble}{\footnotesize\begin{multicols}{2}}
+\renewcommand{\nompostamble}{\end{multicols}}
+
+% Headline
+\makeatletter
+\def\thenomenclature{%
+  \chapter*{\hfill\huge\itshape\nomname\hfill\mbox{}}  % chktex 6
+  \addcontentsline{toc}{chapter}{\nomname}
+\nompreamble{}
+\list{}{%
+\labelwidth\nom@tempdim{}
+\leftmargin\labelwidth{}
+\advance\leftmargin\labelsep{}  % chktex 41
+\itemsep\nomitemsep{}
+\let\makelabel\nomlabel}}
+\makeatother
+
+\makenomenclature{}
+
+
+%----- Index -----%
+\usepackage{imakeidx}
+\makeindex[intoc, options=-s Misc/IndexStyle]
+
+
+%----- References/bibliography -----%
+% Bibliography
+\usepackage{csquotes} % Recommended by BibLaTeX
+\usepackage[
+	backend=biber, 
+	backref=true,
+	eprint=false,
+	hyperref=true,
+	isbn=false,
+	% maxnames=2,
+	sortcites=true,
+	style=numeric-comp,
+	url=false
+]{biblatex}
+\addbibresource{\DocumentBibliographyFile}
+
+% Redefine default cite command
+% \let\textcite\cite%
+
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  % precode
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim%
+   \usebibmacro{prenote}%
+   \bibopenbracket}
+  % loopcode
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  % sepcode
+  {}
+  % postcode
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}%
+   \bibclosebracket}
+
+% Adjustments
+\renewcommand*{\bibfont}{\tiny}
+\setcounter{biburllcpenalty}{7000}
+\setcounter{biburlucpenalty}{8000}
+% \addto\captionsbritish{\renewcommand{\refname}{References}}
+
+
+%----- Metadata and hyperlinks -----%
+\usepackage[%
+	breaklinks,
+	unicode,
+	pdfauthor={\DocumentAuthor},
+	pdftitle={\DocumentTitleMeta},
+	pdfsubject={\DocumentSubject},
+	bookmarks=true,
+	colorlinks=true,
+		linkcolor=.,	% red
+		anchorcolor=.,	% black
+		citecolor=.,	% green
+		filecolor=.,	% cyan
+		menucolor=.,	% red
+		runcolor=.,		% cyan (same as 'file')
+		urlcolor=AccentColor,	% magenta-ish
+	linktoc=all,
+	pdfkeywords={\DocumentKeyWords}%
+]{hyperref}
+
+\addto\extrasbritish{%
+	\renewcommand{\chapterautorefname}{Chapter}%
+	\renewcommand{\sectionautorefname}{Section}%
+	\renewcommand{\subsectionautorefname}{Subsection}%
+}
+
+\urlstyle{rm} % 'url' package loaded with 'hyperref'
+
+\usepackage{bookmark}

@@ -1,0 +1,35 @@
+\blankpage{}
+
+%--- Some TOC adjustments ---%
+\bookmarksetup{startatroot} % End the roman numeral parts in the TOC
+\addtocontents{toc}{\vspace{\normalbaselineskip}}
+
+
+%----- Appendix -----%
+\input{Content/BackMatter/Appendix.tex}
+
+
+%TC:ignore
+%----- Publications -----%
+\setcounter{secnumdepth}{-1} % Removes numbers on the final chapters/sections
+\include{Content/BackMatter/Publications}
+
+
+%----- Bibliography/references -----%
+\include{Content/BackMatter/References}
+
+
+%----- List of figures and tables -----%
+% \include{Content/BackMatter/ListFiguresTables}
+
+
+%----- List of symbols (nomenclature) -----%
+\newpage\printnomenclature{}
+
+
+%----- Index -----%
+\include{Content/BackMatter/Index}
+%TC:endignore
+
+%----- Last page (empty) -----%
+\blankpage{}

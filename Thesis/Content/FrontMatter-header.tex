@@ -1,0 +1,50 @@
+%----- Front page -----%
+\include{Content/FrontMatter/FrontPage}
+
+
+%--- Roman numeral page numbers ---%
+\pagenumbering{roman}
+\setcounter{page}{2}
+\pagestyle{plain}
+
+
+%----- Copyright page -----%
+\include{Content/FrontMatter/CopyrightPage}
+
+
+%----- Dedication or epitaph -----%
+\include{Content/FrontMatter/Dedication}
+
+
+%----- Table of contents -----%
+\newpage
+\hypertarget{toclabel}{}%
+\begin{multicols*}{2}
+    \tableofcontents
+\end{multicols*}
+\thispagestyle{plain}
+
+
+%----- Preface -----%
+\include{Content/FrontMatter/Preface}
+
+
+%----- Acknowledgement -----%
+\include{Content/FrontMatter/Acknowledgements}
+
+
+%----- Summary/Abstract/Overview/Introduction -----%
+\include{Content/FrontMatter/Summary}
+
+
+%----- Start main style for document -----%
+\zlabel{PageWhereNumberingResets}
+\pagenumbering{arabic}
+
+\makeatletter
+\newcommand{\pageNumberToUse}{\zref@extract{PageWhereNumberingResets}{abspage}}
+\makeatother
+\setcounter{page}{\pageNumberToUse}
+
+\thispagestyle{plain} % Transition to first Part
+\pagestyle{main}

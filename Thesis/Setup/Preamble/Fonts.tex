@@ -1,0 +1,47 @@
+%========== Font settings ==========%
+
+%----- Main fonts (text and math) -----%
+\usepackage[no-math]{fontspec}
+\setmainfont[
+    Ligatures=Common, %{Common,Contextual,Rare,Historic,TeX},
+    Numbers={OldStyle, Proportional},
+    BoldFeatures={Numbers=Lining}
+    ]{\DocumentFontMain}
+
+% Solves problem with rasterized math font
+\usepackage{unicode-math}
+
+% Removes various font size/shape warnings
+\usepackage{anyfontsize}
+
+% Swash shape
+\newfontface\partstyle%
+	[Contextuals=Swash]{Adobe Caslon Pro Italic}
+	\newcommand\textps[1]{{\swshape#1}}
+
+% Sans font
+\setsansfont[%
+    Scale=MatchLowercase]
+    % BoldFont={* Demi Bold}]%
+    {\DocumentFontSansSerif}
+
+% Typewriter font (Mono spaced)
+\setmonofont[%
+    Scale=MatchLowercase]%
+    {\DocumentFontMonospace}
+
+
+%----- Other fonts -----%
+% Latin Modern Roman -- Uses in custom `siunitx` declarations
+\newfontfamily\LatinModernRomanMathFont{Latin Modern Math}
+
+
+%----- Custom spacing -----%
+% Page margins
+\usepackage[left=2cm, right=2cm, top=2.54cm, bottom=2.54cm]{geometry}
+
+% Paragraph indentation.
+\setlength{\parindent}{0.5cm}
+
+% Line spacing
+\linespread{1.1}
