@@ -1,0 +1,22 @@
+## macOS metadata file
+.DS_Store
+
+## LaTeX auxiliary files
+**/*.aux
+**/*.synctex.gz
+**/*.synctex(busy)
+**/*.bbl
+**/*.bcf
+**/*.blg
+**/*.err
+**/*.idx
+**/*.ilg
+**/*.ind
+**/*.log
+**/*.markdown.*
+**/*.nlo
+**/*.nls
+**/*.out
+**/*.run.xml
+**/*.toc
+**/_markdown*
