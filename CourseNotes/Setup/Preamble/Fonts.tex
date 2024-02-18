@@ -1,0 +1,80 @@
+%========== Font settings ==========%
+
+%-- Not for XeTeX --% Accents and copy-paste works properly 
+% \usepackage[T1]{fontenc}
+
+
+%----- Main text and math fonts -----%
+\usepackage{fontspec}	
+\usepackage{unicode-math}				
+\setmainfont[%
+    Ligatures=Common,
+    % Numbers=OldStyle
+    ]{\DocumentFontMain}
+
+\setmathfont{Latin Modern Math}
+\setmathrm{Latin Modern Math}
+
+
+%----- Extra definitions and adjustments -----%
+\newcommand\liningnumbers{\addfontfeature{Numbers=Lining}}
+
+% Swash shape
+% \newfontface\swshape%
+% 	[Contextuals=Swash]{Adobe Garamond Pro Italic}
+% 	\newcommand\textsw[1]{{\swshape#1}}
+
+% Sans font
+\setsansfont[%
+    Scale=MatchLowercase,
+    BoldFont={* Demi Bold}]%
+    {\DocumentFontSansSerif}
+
+% Typewriter font (Mono spaced)
+\setmonofont[%
+    Scale=MatchLowercase]%
+    {\DocumentFontMonospace}
+
+% Greek font
+% \newfontfamily\greekfont[Script=Greek]{CMU Classical Serif}
+
+
+
+%----- Other fonts -----%
+
+% Latin Modern Roman
+% \newfontfamily\LatinModernRomanFont{Latin Modern Roman}
+% \newenvironment{LatinModernRomanEnv}{\LatinModernRomanFont}{\par}
+% \DeclareTextFontCommand{\LatinModernRoman}{\LatinModernRomanFont}
+
+% Times New Roman
+%\newfontfamily\TimesNewRomanFont{Times New Roman}
+%\newenvironment{TimesNewRomanEnv}{\TimesNewRomanFont}{\par}
+%\DeclareTextFontCommand{\TimesNewRoman}{\TimesNewRomanFont}
+
+% Arial
+%\newfontfamily\ArialFont{Arial}
+%\newenvironment{ArialEnv}{\ArialFont}{\par}
+%\DeclareTextFontCommand{\Arial}{\ArialFont}
+
+% Courier
+%\newfontfamily\CourierFont{Courier}
+%\newenvironment{CourierEnv}{\CourierFont}{\par}
+%\DeclareTextFontCommand{\Courier}{\CourierFont}
+
+% Inconsolata
+%\newfontfamily\InconsolataFont{Inconsolata}
+%\newenvironment{InconsolataEnv}{\InconsolataFont}{\par}
+%\DeclareTextFontCommand{\Inconsolata}{\InconsolataFont}
+
+% Helvetica Light
+%\newfontfamily\HelveticaLightFont	{Helvetica Light}
+%\newenvironment{HelveticaLightEnv}{\HelveticaLightFont}{\par}
+%\DeclareTextFontCommand{\HelveticaLight}{\HelveticaLightFont}
+
+
+
+%----- Math fonts -----%
+% Outline math font
+% \usepackage{mathspec}
+% \setmathtt{Helvetica Neue LT Std 75 Bold Outline}

@@ -1,0 +1,56 @@
+%========== Headers and footers ==========%
+
+% Main package
+\usepackage{fancyhdr}	
+
+% Margins
+\setlength{\headheight}{16pt}
+
+%----- Styles -----%
+% Main style in the document
+\fancypagestyle{main}{%
+	\renewcommand{\chaptermark}[1]{\markboth{##1}{}}
+	\renewcommand{\sectionmark}[1]{\markright{##1}{}}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	%
+	\lhead{\hyperlink{toclabel}{%
+		\small\bfseries{\DocumentTitle}}}
+	\rhead{\small\leftmark}
+	%\chead{\scriptsize\sffamily%
+	%	\StrLeft{\DocumentCourseCode}{3}\hspace{1.5pt}%
+	%	\StrRight{\DocumentCourseCode}{3}}
+	\lfoot{\footnotesize\rightmark}
+	\cfoot{}
+	\rfoot{\hyperlink{toclabel}{\small\thepage}}
+	}
+
+% Plain
+\fancypagestyle{plain}{%
+	% Clear all header and footer fields:
+		\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\rfoot{\hyperlink{toclabel}{\small\thepage}}
+	}
+
+% TOC style
+\fancypagestyle{tocstyle}{%
+	% Clear all header and footer fields:
+		\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\lfoot{\footnotesize\itshape{\DocumentUniversity}}   % chktex 6
+	\cfoot{\footnotesize\slshape Last updated on \today} % chktex 6
+	\rfoot{\hyperlink{toclabel}{\small\thepage}}
+	}
+	
+% End style
+\fancypagestyle{end}{%
+	\fancyhf{}
+	\renewcommand{\headrulewidth}{0pt}
+	\renewcommand{\footrulewidth}{0pt}
+	\lfoot{\footnotesize{\DocumentAuthor}}
+	\cfoot{\small\thesistitleplain}
+	\rfoot{{\the\year}}
+	}

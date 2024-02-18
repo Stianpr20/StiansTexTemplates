@@ -1,0 +1,96 @@
+%========== Sectioning titles ==========%
+
+% Main package
+% (No indent on first line)
+\usepackage[noindentafter]{titlesec}
+
+%----- Customise headings -----%
+% Part
+\titleformat{\part}[display]
+	% Formatting of part title -- main:
+		{\normalfont\filcenter%
+		\Huge\itshape\color{StyleCol1}}  % chktex 6
+	% Formatting of part title -- label:
+		{\normalfont\LARGE\partname%
+		\hspace{2mm}\LARGE\thepart\centering}
+	% Horizontal spacing between the two:
+		{0pt}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[\vspace{1.5cm}{\includegraphics[width=14cm]%
+		{Graphics/Global/swirl.pdf}}]
+
+% Chapter
+\titleformat{\chapter}[display]
+	% Formatting of chapter title -- main:
+		{\itshape\bfseries\Large}  % chktex 6
+	% Formatting of chapter title -- label:
+		{\normalfont\chaptertitlename%
+		\hspace{2mm}\Huge\thechapter\centering}
+	% Horizontal spacing between the two:
+		{0pt}
+	% Extra code -- before:
+		{\Huge\centering}
+	% Extra code -- after:
+		[]
+
+	% Chapter title spacing
+	% {left}{before}{after}[right]
+	\titlespacing{\chapter}{0pt}{0cm}{12mm}
+	
+% Section
+\titleformat{\section}
+	% Formatting of section title -- main:
+		{\LARGE\bfseries%\color{StyleCol1}
+		}
+	% Formatting of section title -- label:
+		{\thesection}
+	% Horizontal spacing between the two:
+		{0.5em}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[\titlerule]
+
+	% Section title spacing
+	\titlespacing*{\section}{0pt}{1cm}{0.75em}
+
+% Subsection
+\titleformat{\subsection}
+	% Formatting of subsection title -- main:
+		{\Large\bfseries%\color{StyleCol3}
+		}
+	% Formatting of subsection title -- label:
+		{\thesubsection}
+	% Horizontal spacing between the two:
+		{0.5em}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]
+
+	% Subsection title spacing
+	\titlespacing{\subsection}{0pt}{24pt}{0pt}
+
+% Subsubsection
+\titleformat{\subsubsection}
+	% Formatting of subsection title -- main:
+		{\large\bfseries
+		}
+	% Formatting of subsection title -- label:
+		{}
+	% Horizontal spacing between the two:
+		{}
+	% Extra code -- before:
+		{}
+	% Extra code -- after:
+		[]
+
+	% Subsubsection title spacing
+	\titlespacing*{\subsubsection}{0pt}{1.5em}{0pt}
+
+
+%----- Removing numbers -----%
+%\renewcommand\thesection{\hspace*{-1em}}
+%\renewcommand\thesubsection{\hspace*{-1em}}

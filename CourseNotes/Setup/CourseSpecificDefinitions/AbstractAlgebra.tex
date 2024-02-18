@@ -1,0 +1,83 @@
+%----- Abstract algebra and group theory-----%
+\newcounter{Teorem}
+\newcounter{Korollar}
+\newcounter{Proposisjon}
+\newcounter{Lemma}
+
+\newcommand{\teorem}{\jump\textbf{{\color{StyleCol3}%
+	\iflanguage{norsk}{Teorem\stepcounter{Teorem} \Roman{Teorem}}{}
+	\iflanguage{UKenglish}{Theorem\stepcounter{Teorem} \Roman{Teorem}}{}
+	}} \\}
+	
+\newcommand{\Teorem}{\textbf{{\color{StyleCol3}%
+	\iflanguage{norsk}{Teorem\stepcounter{Teorem} \Roman{Teorem}}{}
+	\iflanguage{UKenglish}{Theorem\stepcounter{Teorem} \Roman{Teorem}}{}
+	}} \\}
+
+\newcommand{\teoremnavn}[1]{\jump\textbf{{\color{StyleCol3}%
+	\iflanguage{norsk}{Teorem\stepcounter{Teorem} \Roman{Teorem}~--~{#1}}{}
+	\iflanguage{UKenglish}{Theorem\stepcounter{Teorem} \Roman{Teorem}~--~{#1}}{}
+	}} \\}
+
+\newcommand{\bevis}{\jump\textit{{\color{StyleCol3}%
+	\iflanguage{norsk}{Bevis}{}%
+	\iflanguage{UKenglish}{Proof}{}%
+	}}\\}
+
+\newcommand{\beviS}{\jump\textit{{\color{StyleCol3}%
+	\iflanguage{norsk}{Bevis}{}
+	\iflanguage{UKenglish}{Proof}{}  }} }
+
+\newcommand{\Bevis}{\textit{{\color{StyleCol3}%
+	\iflanguage{norsk}{Bevis}{}
+	\iflanguage{UKenglish}{Proof}{}  }} \\}
+
+\newcommand{\lemma}{\jump \textit{\color{StyleCol3} Lemma\stepcounter{Lemma} \Roman{Lemma}} \\}
+
+\newcommand{\Lemma}{\textit{\color{StyleCol3} Lemma\stepcounter{Lemma} \Roman{Lemma}} \\}
+	
+\newcommand{\korollar}{\jump\textbi{{\color{StyleCol3}%
+	\iflanguage{norsk}{Korollar\stepcounter{Korollar} \Roman{Korollar}}{}
+	\iflanguage{UKenglish}{Corollary\stepcounter{Korollar} \Roman{Korollar}}{} 
+	}} \\}
+
+\newcommand{\korollarnavn}[1]{\jump\textbi{{\color{StyleCol3}%
+	\iflanguage{norsk}{Korollar\stepcounter{Korollar} \Roman{Korollar} #1}{}
+	\iflanguage{UKenglish}{Corollary\stepcounter{Korollar} \Roman{Korollar} #1}{} 
+	}} \\}
+
+\newcommand{\proposisjon}{\jump\textbi{{\color{StyleCol3}%
+	\iflanguage{norsk}{Proposisjon\stepcounter{Proposisjon} \Roman{Proposisjon}}{}
+	\iflanguage{UKenglish}{Proposition\stepcounter{Proposisjon} \Roman{Proposisjon}}{} 
+	}} \\}
+
+\newcommand{\styleQED}{{\color{StyleCol3} $\blacksquare$}}
+
+\newcommand{\mgroup}[2]{\left\langle{#1},\;{#2}\right\rangle}
+\newcommand{\mgroupp}[2]{\left({#1},\;{#2}\right)}
+\newcommand{\mring}[3]{\left\langle{#1},\,{#2},\,{#3}\right\rangle}
+\newcommand{\nn}[1]{$\mathbb{N}_{#1}$}
+\newcommand{\zz}[1]{$\mathbb{Z}_{#1}$}
+\newcommand{\qq}[1]{$\mathbb{Q}_{#1}$}
+\newcommand{\rr}[1]{$\mathbb{R}_{#1}$}
+\newcommand{\cc}[1]{$\mathbb{C}_{#1}$}
+
+\newcommand{\deler}[2]{#1 \, \big\vert \, #2}
+\newcommand{\Deler}[2]{#1 \, \bigg\vert \, #2}
+\newcommand{\delerikke}[2]{#1 \, \slashed{\vert} \, #2}
+
+\newcommand{\polr}[1]{$\mathbb#1\left[x\right]$}
+\newcommand{\polrk}{$k\left[x\right]$}
+\newcommand{\polrf}{$f\left[x\right]$}
+\newcommand{\polrF}{$F\left[x\right]$}
+\newcommand{\polrR}{$R\left[x\right]$}
+\newcommand{\polrZ}{$\mathbb{Z}\left[x\right]$}
+\newcommand{\polrQ}{$\mathbb{Q}\left[x\right]$}
+\newcommand{\polrZp}{$\mathbb{Z}_p\left[x\right]$ }
+\newcommand{\imbilde}{\mathrm{im}\,\varphi}
+
+\newcommand{\curlydef}[2]{% '{ | }' notation.
+	\left\lbrace#1\;\middle|\;#2\right\rbrace}
+
+\newcommand{\injektiv}{\lhook\joinrel\longrightarrow}
+\newcommand{\surjektiv}{\relbar\joinrel\twoheadrightarrow}

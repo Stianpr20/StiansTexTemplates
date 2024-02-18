@@ -1,0 +1,59 @@
+%----- Quantum mechanics -----%
+% Bra notation
+%\newcommand{\bra}[1]{\left\langle{#1}\right|}
+\newcommand{\bra}[1]{\left\langle#1\right\rvert}
+\newcommand{\smallbra}[1]{\langle#1\vert}
+
+% Ket notation
+\newcommand{\ket}[1]{\left\lvert#1\right\rangle}
+\newcommand{\smallket}[1]{\vert#1\rangle}
+
+% '< | >' braket notation
+%\newcommand{\braket}[2]{%
+%	\left\langle{#1}\,\middle|\,{#2}\right\rangle}
+\newcommand{\braket}[2]{%
+\left\langle#1\vphantom{#2}\right|%
+\hspace{-0.9mm}\left.#2\vphantom{#1}%
+\right\rangle}
+
+\newcommand{\smallbraket}[2]{%
+\langle#1\vphantom{#2}\vert%
+\hspace{-0.3mm}#2\vphantom{#1}%
+\rangle}
+
+\newcommand{\ketbra}[2]{%
+\left\vert#1\vphantom{#2}\right\rangle\hspace{-0.8mm}%
+\left\langle#2\vphantom{#1}\right\vert}
+
+\newcommand{\smallketbra}[2]{%
+\vert#1\rangle\hspace{-0.2mm}%
+\langle#2\vphantom{#1}\vert}
+	
+% '( | )' notation
+%\newcommand{\tri}[2]{%
+%	\left({#1}\;\middle|\;{#2}\right)}
+	
+% '< | | >' braket notation (matrix element)
+%\newcommand{\triket}[3]{%
+%	\left\langle{#1}\,\middle|\,{#2}\,\middle|\,{#3}\right\rangle}
+
+%	 Smaller version:
+%	\newcommand{\trikets}[3]{%
+%	\langle{#1}\,\vert\,{#2}\,\vert\,{#3}\rangle}
+\newcommand{\matrixelement}[3]{%
+\left\langle#1\vphantom{#2#3}\right| %
+#2\left|#3\vphantom{#1#2}%
+\right\rangle}
+
+\newcommand{\smallmatrixelement}[3]{%
+\langle#1\vphantom{#2#3}\vert{}%
+#2\vert#3\vphantom{#1#2}%
+\rangle}
+
+% Commutator and anticommutator
+%\newcommand{\kom}[2]{\big[{#1},{#2}\big]}
+%\newcommand{\ako}[2]{\big[{#1},{#2}\big]_+}
+
+
+% Smaller versions
+%\newcommand{\kets}[1]{\vert{#1}\rangle}

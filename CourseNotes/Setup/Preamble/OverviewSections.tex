@@ -1,0 +1,131 @@
+%========== Overview sections  ==========%
+%  Table of contents
+%  List of figures
+%  List of tables
+%  List of symbols (nomenclature)
+%  Index
+%  References/bibliography
+
+
+% Main package
+\usepackage{tocloft}
+	\setlength\cftparskip{-2pt}
+
+%----- Table of contents -----%
+% Headline
+\renewcommand\cfttoctitlefont{\hfill\Huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftaftertoctitle{\hfill\mbox{}}
+
+% Custom headline title
+% (Analogously use for 'listfigurename' and 'listtablename')
+% \addto\captionsbritish{%
+% 	\renewcommand{\contentsname}{Table of contents}}
+
+% Styling of entries
+% Part
+%\renewcommand\cftbeforepartskip{2em}
+\renewcommand{\cftpartfont}{\large}%{\large\swshape\color{StyleCol1}}
+\renewcommand{\cftpartpagefont}{\large}%{\large\color{StyleCol1}}
+% Chapter
+%\renewcommand\cftbeforechapskip{4pt}
+\renewcommand{\cftchapfont}{\normalsize\bfseries}
+\renewcommand{\cftchappagefont}{\normalsize\bfseries}
+% Section
+\renewcommand{\cftsecfont}{\footnotesize}
+\renewcommand{\cftsecpagefont}{\footnotesize}
+	\makeatletter
+		\renewcommand{\cftsecdotsep}{2.5}
+	\makeatother
+% Subsection
+\renewcommand{\cftsubsecfont}{\footnotesize}
+\renewcommand{\cftsubsecpagefont}{\footnotesize}
+	\makeatletter
+		\renewcommand{\cftsubsecdotsep}{2.5}
+	\makeatother
+
+% Indentation
+\cftsetindents{chapter}{0em}{1.5em}	
+\cftsetindents{section}{2.5em}{2em}
+\cftsetindents{subsection}{4.5em}{3em}
+
+% Remove numbers
+%\makeatletter
+	%\renewcommand{\cftchappresnum}{\begin{lrbox}{\@tempboxa}}
+	%\renewcommand{\cftchapaftersnum}{\end{lrbox}}
+%\makeatother	
+%\makeatletter
+	%\renewcommand{\cftsecpresnum}{\begin{lrbox}{\@tempboxa}}
+	%\renewcommand{\cftsecaftersnum}{\end{lrbox}}
+%\makeatother	
+%\makeatletter
+	%\renewcommand{\cftsubsecpresnum}{\begin{lrbox}{\@tempboxa}}
+	%\renewcommand{\cftsubsecaftersnum}{\end{lrbox}}
+%\makeatother
+
+% Two-column TOC (Deprecated)
+%\usepackage[toc,lof]{multitoc}
+%	% Multicolumn separation rule/line width
+%	\setlength{\columnseprule}{0.4pt}
+
+
+%----- List of figures -----%
+% Spacing, dots and size
+\renewcommand\cftfigafterpnum{\vskip2pt\par}  % chktex 41
+\renewcommand{\cftfigdotsep}{2.5}
+\renewcommand{\cftfigfont}{\small}
+\renewcommand{\cftfigpagefont}{\small}
+
+% Headline
+\renewcommand\cftloftitlefont{\hfill\huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftafterloftitle{\hfill\mbox{}}
+
+
+%----- List of tables -----%
+% Spacing, dots and size
+\renewcommand\cfttabafterpnum{\vskip2pt\par}  % chktex 41
+\renewcommand{\cfttabdotsep}{2.5}
+\renewcommand{\cfttabfont}{\small}
+\renewcommand{\cfttabpagefont}{\small}
+
+% Headline
+\renewcommand\cftlottitlefont{\hfill\huge\itshape\bfseries}  % chktex 6
+\renewcommand\cftafterlottitle{\hfill\mbox{}}
+
+
+%----- List of symbols (nomenclature) -----%
+\usepackage[intoc,refpage]{nomencl}
+	\renewcommand*{\pagedeclaration}[1]{\dotfill\hyperpage{#1}}
+	\renewcommand{\nomname}{List of symbols}
+	\renewcommand{\nompreamble}{\footnotesize\begin{multicols}{2}}
+	\renewcommand{\nompostamble}{\end{multicols}}
+
+% Headline
+\makeatletter
+\def\thenomenclature{%
+  \chapter*{\hfill\huge\itshape\nomname\hfill\mbox{}}  % chktex 6
+  \addcontentsline{toc}{chapter}{\nomname}
+\nompreamble{}
+\list{}{%
+\labelwidth\nom@tempdim{}
+\leftmargin\labelwidth{}
+\advance\leftmargin\labelsep{}  % chktex 41
+\itemsep\nomitemsep{}
+\let\makelabel\nomlabel}}
+\makeatother
+
+\makenomenclature{}
+
+
+%----- Index -----%
+\usepackage{makeidx}
+\makeindex
+\usepackage[totoc,
+	columns=3,
+	rule=0pt,
+	initsep=12pt plus 5pt minus 3pt,
+	unbalanced=false]
+	{idxlayout}
+\renewcommand*{\indexfont}{\scriptsize}
+
+
+

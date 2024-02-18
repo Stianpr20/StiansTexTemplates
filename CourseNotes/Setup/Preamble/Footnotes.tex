@@ -1,0 +1,19 @@
+%========== Footnotes ==========%
+
+%----- Footnote style -----%
+% Simple footnote style (alternative)
+%\renewcommand{\thefootnote}{(\arabic{footnote})}
+
+% Footnote style with symbols.
+\usepackage[symbol*, perpage, bottom]{footmisc}
+\DefineFNsymbolsTM{customFootnoteSymbols}{%
+  {\color{red} \textdagger}    {\dagger}
+  {\color{red} \textdaggerdbl} {\ddagger}
+  {\color{red} \textsection}   {\mathsection}
+  {\color{red} \textparagraph} {\mathparagraph}
+  {\color{red} \textasteriskcentered} *
+}%
+\setfnsymbol{customFootnoteSymbols}
+
+% Workaround for tables.
+\usepackage{tablefootnote}

@@ -1,0 +1,36 @@
+%========== Language specifics ==========%
+
+% Setting document language
+\usepackage[\DocumentLanguage]{babel}
+
+\ifEnglishLanguage%
+    % Changing bibliography title name
+    \addto\captionsbritish{\renewcommand{\bibname}{References}}
+\else
+	% Language specifics:
+	%\addto\extrasnorsk{%
+	%  \renewcommand{\sectionautorefname}{avsnitt}%
+	%}
+	% Norwegian translations
+	\makeatletter
+		\def\HyLang@norsk{%
+		\def\equationautorefname{ligning}%
+		\def\footnoteautorefname{fotnote}%
+		\def\itemautorefname{punkt}%
+		\def\figureautorefname{figur}%
+		\def\tableautorefname{tabell}%
+		\def\partautorefname{del}%
+		\def\appendixautorefname{appendiks}%
+		\def\chapterautorefname{kapittel}%
+		\def\sectionautorefname{avsnitt}%
+		\def\subsectionautorefname{delavsnitt}%
+		\def\subsubsectionautorefname{underdelavsnitt}%
+		\def\paragraphautorefname{paragraf}%
+		\def\subparagraphautorefname{delparagraf}%
+		\def\FancyVerbLineautorefname{linje}%
+		\def\theoremautorefname{teorem}%
+		\def\pageautorefname{side}%
+	}
+	\g@addto@macro\extrasnorsk\HyLang@norsk%
+	\makeatother
+\fi

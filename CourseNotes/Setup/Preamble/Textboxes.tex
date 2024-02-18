@@ -1,0 +1,65 @@
+%========== Textboxes ==========%
+
+%----- Textboxes and verbatim -----%
+% Fancy verbatim
+\usepackage{fancyvrb}
+	\fvset{%
+	%frame=none,
+	%framesep=1mm,
+	fontsize=\small,
+	%numbers=right,
+	framerule=.3mm,
+	numbersep=3mm,
+	tabsize=3,
+	commandchars=@*+,
+	commentchar=§}
+
+% Main package
+\usepackage{mdframed}
+
+% Styles
+\mdfdefinestyle{basic}{%
+	linecolor=black,
+	linewidth=0.4pt,
+	leftmargin=1cm,
+	rightmargin=1cm
+	}
+
+\mdfdefinestyle{codebox}{%
+	backgroundcolor=StyleLightBrown,
+	leftmargin=3mm,
+	rightmargin=3mm,
+	linewidth=0pt,
+	innerleftmargin=5mm,
+	innerrightmargin=5mm,
+	innertopmargin=3mm,
+	innerbottommargin=3mm
+	}
+\surroundwithmdframed[style=codebox]{Verbatim}
+
+
+%----- Miscellaneous -----%
+% For dashed lines in tabular environments:
+% \usepackage{arydshln}
+
+% For textboxes (especially code) [set after 'footmisc' package]
+\usepackage{listings}
+   \lstdefinestyle{JavaStyle}{
+    backgroundcolor=\color{JavaBlack},   
+    commentstyle=\color{JavaGreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\scriptsize\color{JavaGrey},
+    stringstyle=\color{JavaPurple},
+    basicstyle=\scriptsize\ttfamily,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+   \renewcommand*\thelstnumber{\ttfamily\the\value{lstnumber}}

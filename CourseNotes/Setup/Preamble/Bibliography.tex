@@ -1,0 +1,51 @@
+%========== References/bibliography  ==========%
+
+%----- BibLaTeX -----%
+\usepackage{csquotes} % Recommended by BibLaTeX
+\usepackage[
+	backend=biber, 
+	backref=true,
+	eprint=false,
+	hyperref=true,
+	isbn=false,
+	sortcites=true,
+	style=numeric-comp,
+	url=false
+]{biblatex}
+\addbibresource{\DocumentBibliographyFile}
+
+\DeclareCiteCommand{\cite}[\mkbibsuperscript]
+  % precode
+  {\usebibmacro{cite:init}%
+   \let\multicitedelim=\supercitedelim%
+   \usebibmacro{prenote}%
+   \bibopenbracket}
+  % loopcode
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite:comp}}
+  % sepcode
+  {}
+  % postcode
+  {\usebibmacro{cite:dump}%
+   \usebibmacro{postnote}%
+   \bibclosebracket}
+
+% Adjustments
+\renewcommand*{\bibfont}{\tiny}
+
+
+% %----- Using 'natbib' (deprecated) -----%
+% \usepackage[nottoc]{tocbibind}
+% \usepackage[super,square]{natbib}
+
+% % Enabling prefix for superscript citations
+% 	\makeatletter
+% 		\renewcommand\NAT@citesuper[3]{\ifNAT@swa{}
+% 		\if*#2*\else#2\NAT@spacechar\fi
+% 		\unskip\kern\p@\textsuperscript{\NAT@@open#1\if*#3*\else,\NAT@spacechar#3\fi\NAT@@close}%
+%    		\else #1\fi\endgroup}
+% 	\makeatother
+% 	\renewcommand{\bibfont}{\small}
+
+% % Styling option
+% \bibliographystyle{IEEEtran}

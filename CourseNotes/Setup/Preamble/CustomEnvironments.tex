@@ -1,0 +1,130 @@
+%========== New environments ===\chapter{New environments}%
+
+% Common properties for custom environments
+\newcommand{\ruleThickness}{1pt}
+\newcommand{\restrule}{\leaders\hbox{\rule[2.25pt]{1pt}{\ruleThickness}}\hfill}
+
+% For custom verbatim environment
+%\usepackage{fancyvrb}
+%	\fvset{%
+%	frame=none,
+%	framesep=1mm,
+%	fontsize=\small,
+%	numbers=right,
+%	framerule=.3mm,
+%	numbersep=3mm,
+%	tabsize=3,
+%	commandchars=@*+,
+%	commentchar=§}
+
+%	 Background colour
+%	\makeatletter
+%	\newif\ifFV@bgcolor
+%	\newbox\FV@bgbox
+%	\define@key{FV}{bgcolor}{\FV@bgcolortrue\def\FV@bgcolor{#1}}
+
+%	\def\FV@BeginVBox{%
+%	  \leavevmode\ifFV@bgcolor\setbox\FV@bgbox=\fi
+%	  \hbox\ifx\FV@boxwidth\relax\else to\FV@boxwidth\fi\bgroup
+%	  \ifcase\FV@baseline\vbox\or\vtop\or$\vcenter\fi\bgroup}
+%	\def\FV@EndVBox{\egroup\ifmmode$\fi\hfil\egroup
+% 	 \ifFV@bgcolor\colorbox{\FV@bgcolor}{\box\FV@bgbox}\fi}
+%	\makeatother
+
+
+%----- Examples -----%
+\definecolor{AccentColorExamples}{RGB}{24,133,166} % aka. 'StyleCol1'
+\newcounter{example}[chapter]
+
+\newenvironment{example}[1][]
+{% before content:
+	\noindent
+	\begin{minipage}{\textwidth}
+		\refstepcounter{example}
+		\bigskip\noindent
+		\begin{minipage}[c]{1.5cm}
+			{\color{AccentColorExamples} \rule{1.5cm}{\ruleThickness}}
+		\end{minipage}
+		\begin{minipage}[c]{\widthofpbox{%
+			\ExampleName~\theexample}}
+			{\color{AccentColorExamples}%
+			\textbf{Example~\theexample}}
+		\end{minipage}
+		\ifthenelse{\equal{#1}{}}{%
+				\kern-4pt
+			}{%
+				\begin{minipage}[c]{1.5cm}
+					{\color{AccentColorExamples} \rule{1.5cm}{\ruleThickness}}
+				\end{minipage}
+				{\color{AccentColorExamples} \textrm{#1}}%
+			}
+		{\color{AccentColorExamples} \restrule}%
+	\end{minipage}
+	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}%
+}{% after content:
+	\par%
+	\parskip=-\the\textfloatsep%
+	\leavevmode\newline%
+	{\color{AccentColorExamples} \restrule} \\[-4.5mm]%
+	{\color{AccentColorExamples} \restrule}%
+	\bigskip\par%
+}
+
+% For referencing:
+\renewcommand*\theexample{\thechapter.\arabic{example}}
+
+
+
+%----- Exercises -----%
+\newcounter{exercise}[chapter]
+\newenvironment{exercise}[1][]
+{% before content:
+	\refstepcounter{exercise}
+	\bigskip\noindent
+	\begin{minipage}[c]{1.5cm}
+	    {\color{StyleCol5} \rule{1.5cm}{0.4pt}}
+	\end{minipage}
+	\begin{minipage}[c]{\widthofpbox{%
+		Exercise~\theexercise}}
+		{\color{StyleCol5} \textbf{Exercise~\theexercise}}
+	\end{minipage}
+	\begin{minipage}[c]{1.5cm}
+	    {\color{StyleCol5} \rule{1.5cm}{0.4pt}}
+	\end{minipage}
+	{\color{StyleCol5} #1}
+	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+}{% after content:
+	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+	\bigskip\par\noindent\ignorespacesafterend{}
+}
+
+% For referencing:
+\renewcommand*\theexercise{\thechapter.\arabic{exercise}}
+
+
+
+%----- Solutions -----%
+\newcounter{solution}[chapter]
+\newenvironment{solution}[1][]
+{% before content:
+	\refstepcounter{solution}
+	\bigskip\noindent
+	\begin{minipage}[c]{1.5cm}
+	    {\color{StyleDarkGreen} \rule{1.5cm}{0.4pt}}
+	\end{minipage}
+	\begin{minipage}[c]{\widthofpbox{%
+		Solution~\thesolution}}
+		{\color{StyleDarkGreen} \textit{Solution~\thesolution}}
+	\end{minipage}
+	\begin{minipage}[c]{1.5cm}
+	    {\color{StyleDarkGreen} \rule{1.5cm}{0.4pt}}
+	\end{minipage}
+	{\color{StyleDarkGreen} \textit{#1}}
+	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+}{% after content:
+	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+	\bigskip\par\noindent\ignorespacesafterend{}
+}
+
+% For referencing:
+\renewcommand*\thesolution{\thechapter.\arabic{solution}}

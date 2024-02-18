@@ -1,0 +1,25 @@
+%%-------------------------------------------------------%%
+%% Stian's LaTeX template                                %%
+%%-------------------------------------------------------%%
+
+%----- Preamble -----%
+%TC:ignore
+\include{Setup/DocumentSpecifications}
+\input  {Setup/PreambleMain.tex}
+%TC:endignore
+
+%----- Content -----%
+\begin{document}
+
+% Front matter
+\input{Content/FrontMatter.tex}
+
+% Body
+\include{Content/Body/Introduction}
+\include{Content/Body/Dummy}
+
+% Back matter
+\input{Content/BackMatter.tex}
+
+\end{document}
+%---------------------------------------------------------%

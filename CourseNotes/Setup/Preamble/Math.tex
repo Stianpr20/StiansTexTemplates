@@ -1,0 +1,379 @@
+%========== Mathematical packages ==========%
+
+%----- Font settings -----%
+% For chaninging math indentation (workaround)
+\usepackage[fleqn]{amsmath}				
+\setlength{\mathindent}{1cm}
+
+% Mathematical formating and symbols
+\usepackage{extarrows}
+\usepackage{amsfonts,amssymb,amsgen}
+%\usepackage{amsthm}
+
+% To handle warning about bold symbols
+% https://tex.stackexchange.com/questions/106714/stmaryrd-and-boldsymbol-avoid-warnings
+\usepackage{stmaryrd}
+\SetSymbolFont{stmry}{bold}{U}{stmry}{m}{n}
+
+% Extended set of integrals
+\usepackage{esint}
+
+% More symbols
+\usepackage{stmaryrd}
+
+% Nicer, small fraction
+% \usepackage{nicefrac}
+
+% Alternative \mathbb (with double '1')
+%\usepackage{bbm}
+%\usepackage{bbold}
+%\usepackage{dsfont}
+\usepackage[bb=boondox]{mathalfa}
+
+% Euler script font.
+%\usepackage[mathscr]{euscript}
+
+% Ralph Smith's formal script font	
+\usepackage{mathrsfs}
+
+
+%----- Custom spacing -----%
+%----- Math spacing -----%
+% Spacing before and after math.
+% \makeatletter
+% 	\g@addto@macro\normalsize{%
+% % Spacing for math environments:
+%   	\setlength\abovedisplayskip{7pt plus 3pt minus 5pt}
+%  	 \setlength\belowdisplayskip{7pt plus 3pt minus 5pt}
+% % Spacing for displayed math:
+%  	 \setlength\abovedisplayshortskip{7pt plus 3pt minus 5pt}
+%  	 \setlength\belowdisplayshortskip{7pt plus 3pt minus 5pt}%
+%  	 }
+% \makeatother
+
+% Allows page break in math
+\allowdisplaybreaks{}
+
+
+
+%----- Useful math packages -----%
+% Various math stuff
+\usepackage{mathtools}	
+
+% Enables 'cancel to' in math
+\usepackage{cancel}
+
+% For slashing letters in math (useful for quantum mechanics)					
+\usepackage{slashed}
+
+% Bold math (bold \nabla and greek letters)
+\usepackage{bm}
+
+% 'sfrac' and 'rfrac'
+\usepackage{xfrac}
+
+% For better equation boxing
+\usepackage{empheq}
+
+% For writing outside matrices
+%\usepackage{blkarray}
+
+% For sans-serif bold italic
+%\usepackage{isomath}
+
+
+
+
+
+
+
+
+%::::::::::Universal math definitions ::::::::::%
+
+
+% Differential operator [must come after 'imakeidx']
+\renewcommand{\d}{\mathop{}\!\mathrm{d}}
+
+% Partial differential operator.
+\newcommand{\D}{\mathop{}\!\partial}
+
+% Inexact differential.
+\newcommand{\dbar}{\mathop{}\mathchar'26\mkern-12mu\mathrm{d}}
+
+% New closing square root.
+\def\cqrt{\mathpalette\DHLhksqrt}
+	\def\DHLhksqrt#1#2{%
+	\setbox0=\hbox{$#1\sqrt{#2\,}$}\dimen0=\ht0         % chktex 41 chktex 46
+	\advance\dimen0-0.2\ht0                             % chktex 8 chktex 41
+	\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%   % chktex 41
+	{\box0\lower0.4pt\box2}}
+
+% Centred equations.
+\newenvironment{ceq}{%
+        \makeatletter
+        \setbool{@fleqn}{false}
+        \makeatother
+        \begin{equation}
+        }{\end{equation}}
+
+% Centred equations (without #).
+\newenvironment{ceq*}{%
+        \makeatletter
+        \setbool{@fleqn}{false}
+        \makeatother
+        \begin{equation*}
+        }{\end{equation*}}
+
+% Lines in matrices.
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols{}c]{%
+  \hskip{} -\arraycolsep{}           % chktex 41
+  \let\@ifnextchar\new@ifnextchar{}  % chktex 21
+  \array{#1}}
+\makeatother
+
+% Colour underline for math.
+\newsavebox\MBox{}
+\newcommand\mathcolourline[2][red]{{\sbox\MBox{\(#2\)}%
+  \rlap{\usebox\MBox}\color{#1}\rule[-1.2\dp\MBox]{\wd\MBox}{0.5pt}}}
+
+% Colour cancel
+\newcommand\colourcancel[2][red]{\renewcommand\CancelColor{\color{#1}}\cancel{#2}}
+\newcommand\colourbcancel[2][red]{\renewcommand\CancelColor{\color{#1}}\bcancel{#2}}
+\newcommand\colourxcancel[2][red]{\renewcommand\CancelColor{\color{#1}}\xcancel{#2}}
+
+% Double brackets
+\usepackage{stmaryrd}
+
+
+%----- Math operators -----%
+% Norwegian
+	% \DeclareMathOperator{\inngrad}{inngrad}
+	% \DeclareMathOperator{\utgrad}{utgrad}
+% General
+	% \DeclareMathOperator{\Exp}{Exp}
+	% \DeclareMathOperator{\ord}{ord}
+	% \DeclareMathOperator{\lcm}{lcm}
+	% \DeclareMathOperator{\cha}{char}
+	% \DeclareMathOperator{\diag}{diag}
+	% \DeclareMathOperator{\irr}{irr}
+	% \DeclareMathOperator{\E}{E}
+	% \DeclareMathOperator{\Var}{Var}
+	% \DeclareMathOperator{\SD}{SD}
+	% \DeclareMathOperator{\SE}{SE}
+	% \DeclareMathOperator{\Cov}{Cov}
+	% \DeclareMathOperator{\Corr}{Corr}
+	% \DeclareMathOperator{\curl}{curl}
+	% \DeclareMathOperator{\grad}{grad}
+	% \DeclareMathOperator{\Div}{div}
+	% \DeclareMathOperator{\Int}{int}
+	% \DeclareMathOperator{\ext}{ext}
+	% \DeclareMathOperator{\cl}{cl}
+	% \DeclareMathOperator{\tr}{tr}
+	% \DeclareMathOperator{\Tr}{Tr}
+	% \DeclareMathOperator{\Det}{Det}
+	% \DeclareMathOperator{\Span}{span}
+	% \DeclareMathOperator{\dist}{dist}
+	% \DeclareMathOperator{\ad}{ad}
+	% \DeclareMathOperator{\Ad}{Ad}
+	% \DeclareMathOperator{\Id}{Id}
+	% \DeclareMathOperator{\aff}{aff}
+	% \DeclareMathOperator{\symm}{symm}
+	% \DeclareMathOperator{\diff}{diff}
+	% \DeclareMathOperator{\End}{End}
+	% \DeclareMathOperator{\Heis}{Heis}
+	% \DeclareMathOperator{\Der}{Der}
+	% \DeclareMathOperator{\aut}{aut}
+	% \DeclareMathOperator{\Aut}{Aut}
+
+
+
+
+
+%::::: Math environments :::::%
+%----- Mathematical definition -----%
+% \newcounter{definition}
+% \newenvironment{definition}[1][]
+% {% before content:
+% 	\refstepcounter{definition}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol3} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{Definition~\thedefinition}}
+% 		{\color{StyleCol3} \textit{Definition~\thedefinition}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol3} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	{\color{StyleCol3}\small \textbf{\textsf{#1}}}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol3} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }
+
+% For referencing:
+%\renewcommand*\thedefinition{\thechapter.\arabic{definition}}
+
+
+
+%----- Proposition -----%
+% \newcounter{proposition}[chapter]
+% \newenvironment{proposition}[1][]
+% {% before content:
+% 	\refstepcounter{proposition}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{%
+% 		Proposition~\theproposition}}
+% 		\textbf{\textit{Proposition~\theproposition}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\textit{#1}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }
+
+% % For referencing:
+% \renewcommand*\theproposition{\thechapter.\arabic{proposition}}
+
+
+
+%----- Lemma -----%
+% \newcounter{lemma}[chapter]
+% \renewenvironment{lemma}[1][]
+% {% before content:
+% 	\refstepcounter{lemma}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{%
+% 		Lemma~\thelemma}}
+% 		\textbf{\textit{Lemma~\thelemma}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\textit{#1}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend
+% }
+
+% For referencing:
+% \renewcommand*\thelemma{\thechapter.\arabic{lemma}}
+
+
+
+% %----- Conjecture -----%
+% \newcounter{conjecture}
+% \newenvironment{conjecture}[1][]
+% {% before content:
+% 	\refstepcounter{conjecture}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleYellow} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{%
+% 		Conjecture~\theconjecture}}
+% 		{\color{StyleYellow} \textit{Conjecture~\theconjecture}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleYellow} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	{\color{StyleYellow} \textit{#1}}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }
+
+% % For referencing:
+% \renewcommand*\theconjecture{\Roman{conjecture}}
+
+
+
+% %----- Theorems -----%
+% \newcounter{theorem}
+% \newenvironment{theorem}[1][]
+% {% before content:
+% 	\refstepcounter{theorem}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol6} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{%
+% 		Theorem~\thetheorem}}
+% 		{\color{StyleCol6} \textit{Theorem~\thetheorem}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol6} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	{\color{StyleCol6} \textit{#1}}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }
+
+% % For referencing:
+% \renewcommand*\thetheorem{\Roman{theorem}}
+
+
+
+% %----- Corollary -----%
+% \newcounter{corollary}
+% \newenvironment{corollary}[1][]
+% {% before content:
+% 	\refstepcounter{corollary}
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol3} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{%
+% 		Corollary~\thecorollary}}
+% 		{\color{StyleCol3} \textit{Corollary~\thecorollary}}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    {\color{StyleCol3} \rule{1.5cm}{0.4pt}}
+% 	\end{minipage}
+% 	{\color{StyleCol3} \textit{#1}}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }
+
+% % For referencing:
+% \renewcommand*\thecorollary{\Roman{corollary}}
+
+
+
+% %----- Proofs -----%
+% \newenvironment{proof}[1][]
+% {% before content:
+% 	\bigskip\noindent
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{\widthofpbox{Proof}}
+% 		\textit{Proof}
+% 	\end{minipage}
+% 	\begin{minipage}[c]{1.5cm}
+% 	    \rule{1.5cm}{0.4pt}
+% 	\end{minipage}
+% 	\smallbreak\vspace{-1mm}\noindent\ignorespaces{}
+% }{% after content:
+% 	%\centerline{{\color{StyleCol1} \rule{0.55\linewidth}{0.4pt}}}
+% 	\mbox{}\(\blacksquare\)  % chktex 21
+% 	\bigskip\par\noindent\ignorespacesafterend{}
+% }

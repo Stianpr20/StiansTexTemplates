@@ -1,0 +1,210 @@
+%========== Tools ==========%
+
+%----- Essential -----%
+% Customising item lists	
+\usepackage{enumitem}
+	\setlist[enumerate]{label*=\arabic*.}
+
+% Labels and referencing
+\usepackage{fancyref}
+
+% Changing line spacing
+\usepackage{setspace}
+
+% Manipulating strings
+\usepackage{xstring}
+
+% Making centred equation environment
+\usepackage{etoolbox}
+
+% For merging cells in tables.
+\usepackage{multirow}
+
+% For vertical centring in cells.
+\usepackage{array}
+	% For defining columns (in tables) with static width ('array' package)
+	\newcolumntype{L}[1]{>{\raggedright\let\newline{}\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{C}[1]{>{\centering\let\newline{}\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{R}[1]{>{\raggedleft\let\newline{}\\\arraybackslash\hspace{0pt}}m{#1}}
+	\newcolumntype{T}{>{\ttfamily}l<{}}
+	% For vertical centring in cells.
+	\newcolumntype{M}{>{\centering\arraybackslash}%
+		m{\dimexpr.25\linewidth-2\tabcolsep}}
+
+% For ISO-8601 date format
+\usepackage[yyyymmdd]{datetime2}
+\renewcommand{\dateseparator}{-}
+
+% General readability improvements?
+\usepackage{microtype}
+
+% Multiple column layout
+\usepackage{multicol}
+
+
+%----- Embedding figures and files -----%
+% Used for inserting graphics
+\usepackage{graphicx}	
+
+% Including pdf files
+% \usepackage{pdfpages}
+
+% \usepackage{markdown}
+	% \renewcommand{\markdownRendererHeadingTwo}[1]{\subsubsection*{#1}}
+	% \renewcommand{\markdownRendererHeadingThree}[1]{\subsection*{#1}}
+	% \renewcommand{\markdownRendererHeadingFour}[1]{\subsubsection*{#1}}
+	% \renewcommand{\markdownRendererCodeSpanPrototype}[1]{{\color{AccentColor}\ttBreak{#1}}}
+	% %-- Automatic hyphenation/line break with 'ttfamily'
+	% % https://tex.stackexchange.com/questions/360193/how-can-i-hyphenate-before-capital-letters-in-ttfamily#360195
+	% \usepackage{expl3}
+	% \expandafter\def\csname ver@l3regex.sty\endcsname{} 
+	% \usepackage{xparse,l3regex}
+	% \ExplSyntaxOn%
+	% \NewDocumentCommand{\ttBreak}{m}
+	% {
+	% \tl_set:Nn \l_spraff_cppstring_tl { #1 }
+	% % change _ to a printable underscore
+	% \regex_replace_all:nnN { _ } { \cO\_ } \l_spraff_cppstring_tl
+	% % change :: to \linebreak[0]::
+	% \regex_replace_all:nnN { :: } { \c{linebreak}[0]:: } \l_spraff_cppstring_tl
+	% % change capital letter X to \-X
+	% \regex_replace_all:nnN { (\B[A-Z]\B[^A-Z]) } { \c{-}\1 } \l_spraff_cppstring_tl
+	% % print the result
+	% {\normalfont\ttfamily \tl_use:N \l_spraff_cppstring_tl }
+	% }
+	% \tl_new:N \l_spraff_cppstring_tl
+	% \ExplSyntaxOff%
+	% %--
+
+% Generating QR-codes
+% \usepackage{qrcode}
+
+
+%----- Customising floats -----%
+% Wrapping text around figures.
+\usepackage{wrapfig}
+
+% Placing figures in columns ('multicol)
+%-- From: https://tex.stackexchange.com/questions/12262/multicol-and-figures
+\newenvironment{ColumnFigure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+
+% Caption styling
+\usepackage[
+	font={sf,scriptsize,stretch=1.1},
+	labelfont={sf,bf}]
+	{caption}
+	
+\usepackage[
+	font={sf,scriptsize,stretch=1.1},
+	labelfont={sf,bf}]
+	{subcaption}
+	
+	\DeclareCaptionLabelFormat{boldParens}{{\bfseries(#2)}}
+	\captionsetup{subrefformat=boldParens}
+
+% Putting captions beside figures
+\usepackage[rightcaption]{sidecap}
+\sidecaptionvpos{figure}{t}
+
+
+%----- Science and engineering (non-math) -----%
+% For chemical formulae
+\usepackage[version=4]{mhchem}
+
+% Consistent and simple typing of quantities
+\usepackage{siunitx}
+	% Norweigan
+		\DeclareSIUnit\dgn{d\LatinModernRomanFont\text{\o}gn}
+		\DeclareSIUnit\hk{hk}
+		\DeclareSIUnit\mil{mil}
+		\DeclareSIUnit\nok{NOK}
+		\DeclareSIUnit\tonn{tonn}
+		\DeclareSIUnit\aar{\LatinModernRomanFont\text{\aa}r}
+	% General
+		\DeclareSIUnit\anno{a}
+		\DeclareSIUnit\atmosphere{atm}
+		\DeclareSIUnit\kWh{kWh}
+		\DeclareSIUnit\lightyear{ly}
+		\DeclareSIUnit\parsec{pc}
+		\DeclareSIUnit\pixel{px}
+		\DeclareSIUnit\poise{P}
+		\DeclareSIUnit\rpm{rpm}
+		\DeclareSIUnit\TWh{TWh}
+		\DeclareSIUnit\Wh{Wh}
+	% Fixing units with special characters
+		\DeclareSIUnit\angstrom{%
+			\text{\LatinModernRomanFont\AA}}
+		\DeclareSIUnit\ohm{%
+			\text{\LatinModernRomanFont\text{Ω}}}
+		%\DeclareSIUnit\degree{%
+			%\text{\LatinModernRomanFont\textdegree}}
+	
+	\sisetup{%
+	detect-all,
+	per-mode=symbol,
+	separate-uncertainty=true,
+	group-minimum-digits=4,
+	binary-units=true,
+	% math-micro={\LatinModernRomanFont\text{µ}},
+	text-micro=µ,
+	text-degree=°,
+	math-degree={\LatinModernRomanFont\text{°}}
+	}	
+	%\sisetup{separate-uncertainty = true}
+	%\sisetup{exponent-product = \cdot}
+
+
+%----- Miscellaneous -----%
+% \usepackage{verbatim}
+% \usepackage{afterpage}
+
+% Ensure blank page
+\usepackage{emptypage}
+	\newcommand{\blankpage}{\newpage\null\thispagestyle{empty}}
+
+% Better lines in tables
+\usepackage{booktabs}
+
+% For striking out text.
+%\usepackage[normalem]{ulem}
+
+% For finding minimum widths of minipages
+%\usepackage{pbox}
+
+% To thicken table lines
+%\usepackage{booktabs}
+
+% For «Landscape» environment.
+%\usepackage{pdflscape}
+
+% For «Sidewaystable» environment.
+%\usepackage{rotating}
+
+% Keyboard button symbols
+%\usepackage{pifont}
+% \usepackage[os=mac, mackeys=symbols]{menukeys}
+% 	\renewmenumacro{\directory}[/]{pathswithfolder}
+% 	\renewmenumacro{\menu}[>]{roundedmenus}
+% 	\renewmenumacro{\keys}[+]{roundedkeys}
+
+% Enumitem colour items
+%\newcommand{\itemcolour}[1]{%
+%  \renewcommand{\makelabel}[1]{\color{#1}\hfil ##1}}
+
+% Turn the reference number into a string
+%\usepackage{refcount}
+
+% For dotted underlines
+%\usepackage{ulem}
+
+% For temporary margin change
+%\usepackage{scrextend}
+
+% Warns of incorrect LaTeX use.
+%\RequirePackage[l2tabu, orthodox]{nag}
+
+% Word counter (custom definition)
+% \newcommand\wordcount{\input{% chktex 27
+% 	Misc/\jobname_wordcount.txt}}

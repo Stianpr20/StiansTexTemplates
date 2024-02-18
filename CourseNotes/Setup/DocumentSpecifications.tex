@@ -1,0 +1,40 @@
+%----- Document class -----%
+\documentclass[11pt,a4paper]{report}
+
+%----- Language switch -----%
+\newif\ifEnglishLanguage%
+\EnglishLanguagetrue% false=Norwegian
+
+% Metadata to be specified:
+\ifEnglishLanguage%
+	\newcommand{\DocumentLanguage}{british}
+	\newcommand{\DocumentAuthor}{<Author>}
+	\newcommand{\DocumentTitle}{<Title>}
+	\newcommand{\DocumentSubTitle}{<Subtitle>}
+	\newcommand{\DocumentTitleMeta}{Something about \DocumentTitle}
+	\newcommand{\DocumentSubject}{<Subject or category>}
+	\newcommand{\DocumentUniversity}{<Name of the university>}
+	\newcommand{\DocumentKeyWords}{%
+		tagA, tagB, tagC
+	}
+\else
+	\newcommand{\DocumentLanguage}{norsk}
+	\newcommand{\DocumentAuthor}{<Forfatter>}
+	\newcommand{\DocumentTitle}{<Tittel>}
+	\newcommand{\DocumentSubTitle}{<Undertittel>}
+	\newcommand{\DocumentTitleMeta}{Noe om \DocumentTitle}
+	\newcommand{\DocumentSubject}{<Emne eller kategori>}
+	\newcommand{\DocumentUniversity}{<Navn på universitetet>}
+	\newcommand{\DocumentKeyWords}{%
+		tagA, tagB, tagC
+	}
+\fi
+
+
+%----- Fonts -----%
+\newcommand{\DocumentFontMain}{Adobe Garamond Pro}
+\newcommand{\DocumentFontMonospace}{Menlo}
+\newcommand{\DocumentFontSansSerif}{Avenir Next}
+
+%----- Miscellaneous -----%
+\newcommand{\DocumentBibliographyFile}{References/bibliography.bib}

@@ -1,0 +1,30 @@
+%----- Front page -----%
+\input{Content/FrontMatter/FrontPage.tex}
+
+%--- Roman numeral page numbers ---%
+\pagenumbering{roman}
+\setcounter{page}{2}
+\pagestyle{plain}
+
+
+%----- Front matter -----%
+% Copyright page (not included)
+% Dedication or epigraph (not included)
+
+% Table of contents
+  \newpage%
+  \hypertarget{toclabel}{}%
+  \begin{multicols*}{2}
+    \tableofcontents
+  \end{multicols*}
+  \thispagestyle{tocstyle}
+
+% Preface (not included)
+% Acknowledgement (not included)
+% Summary/Abstract/Overview/Introduction (not included)
+
+
+%----- Start main style for document -----%
+\pagestyle{main}\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{4} % Make sure this is correct in the end

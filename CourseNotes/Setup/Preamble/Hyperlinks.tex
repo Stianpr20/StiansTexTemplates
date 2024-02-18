@@ -1,0 +1,25 @@
+%========== Hyperlinks  ==========%
+
+% Metadata and hyperlinks
+\usepackage[%
+	unicode,
+	pdfauthor={\DocumentAuthor},
+	pdftitle={\DocumentTitleMeta},
+	pdfsubject={\DocumentSubject},
+	bookmarks=true,
+	colorlinks=true,
+		linkcolor=.,	% red
+		anchorcolor=.,	% black
+		citecolor=.,	% green
+		filecolor=.,	% cyan
+		menucolor=.,	% red
+		runcolor=.,		% cyan (same as 'file')
+		urlcolor=magenta,	% magenta
+	linktoc=all,
+	pdfkeywords={\DocumentKeyWords}]
+	{hyperref}
+
+\urlstyle{rm} % 'url' package loaded with 'hyperref'
+
+% Reset TOC level ('startatroot') [set after 'hyperref']
+\usepackage{bookmark}
